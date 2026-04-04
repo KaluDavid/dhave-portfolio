@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "sonner";
 import { siteConfig } from "@/config/site.config";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 // ── Font ────────────────────────────────────────────────────────────────────
 const geist = Geist({
@@ -70,7 +71,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <TooltipProvider> {children}</TooltipProvider>
           <Toaster position="top-right" richColors closeButton />
         </ThemeProvider>
       </body>
