@@ -14,7 +14,7 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="py-24 relative overflow-hidden"
+      className="sm:py-24 py-[40px] relative overflow-hidden"
       aria-labelledby="about-heading"
     >
       {/* Subtle grid background */}

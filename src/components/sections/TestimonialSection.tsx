@@ -42,7 +42,7 @@ const TestimonialSection = () => {
   return (
     <section
       id="testimonials"
-      className="py-24 bg-muted/30 border-t border-border"
+      className="sm:py-24 py-[40px] bg-muted/30 border-t border-border"
       aria-labelledby="testimonials-heading"
     >
       <div className="container px-4 sm:px-6 lg:px-8 max-w-[62rem] mx-auto">
@@ -74,7 +74,7 @@ const TestimonialSection = () => {
             </motion.h2>
           </div>
           <motion.p
-            className="text-muted-foreground leading-[26px] text-left text-base"
+            className="text-muted-foreground leading-6.5 text-left text-base"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -161,7 +161,7 @@ const TestimonialSection = () => {
                         <Button
                           variant="ghost"
                           size="sm"
-                          className="mt-3 w-full text-muted-foreground hover:text-foreground"
+                          className="mt-3 w-full border-none cursor-pointer h-11 bg-white text-muted-foreground hover:text-foreground"
                           onClick={() => {
                             setSelectedTestimonial(testimonial);
                             setShowTranscript(true);
@@ -181,7 +181,7 @@ const TestimonialSection = () => {
             </CarouselContent>
 
             <div className="flex items-center justify-center gap-4 mt-8">
-              <CarouselPrevious className="static translate-y-0 h-10 w-10" />
+              <CarouselPrevious className="static bg-white! cursor-pointer translate-y-0 h-10 w-10" />
               <div
                 className="flex gap-2"
                 role="tablist"
@@ -190,7 +190,7 @@ const TestimonialSection = () => {
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
-                    className={`w-2 h-2 rounded-full transition-all ${index === current ? "bg-foreground w-6" : "bg-muted-foreground/30 hover:bg-muted-foreground/50"}`}
+                    className={`w-2 h-2 rounded-full  cursor-pointer transition-all ${index === current ? "bg-foreground w-6" : "bg-muted-foreground/30 hover:bg-muted-foreground/50"}`}
                     onClick={() => api?.scrollTo(index)}
                     aria-label={`Go to slide ${index + 1}`}
                     role="tab"
@@ -198,7 +198,7 @@ const TestimonialSection = () => {
                   />
                 ))}
               </div>
-              <CarouselNext className="static translate-y-0 h-10 w-10" />
+              <CarouselNext className="static bg-white! cursor-pointer translate-y-0 h-10 w-10" />
             </div>
           </Carousel>
         </motion.div>

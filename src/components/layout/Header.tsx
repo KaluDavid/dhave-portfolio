@@ -42,7 +42,7 @@ const Header = () => {
                   variant="outline"
                   size="sm"
                   className={clsx(
-                    "hidden sm:flex p-3! rounded-md h-9 cursor-pointer",
+                    "hidden sm:flex p-3! bg-white! hover:bg-accent! rounded-md h-9 cursor-pointer",
                   )}
                 >
                   <Link

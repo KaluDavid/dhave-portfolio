@@ -39,7 +39,7 @@ const ProcessSection = () => {
   return (
     <section
       id="process"
-      className="py-24 bg-muted/30"
+      className="sm:py-24 py-[40px] bg-muted/30"
       aria-labelledby="process-heading"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

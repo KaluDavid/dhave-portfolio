@@ -103,7 +103,7 @@ const BottomNavigation = () => {
                   transition={{ duration: 0.2 }}
                   onClick={scrollToTop}
                   className={cn(
-                    "flex flex-col items-center justify-center sm:gap-1 gap-0.5 sm:px-3 sm:py-2 py-1 px-1.5 rounded-xl transition-colors sm:min-w-[60px]",
+                    "flex flex-col items-center justify-center sm:gap-1 gap-0.5 sm:px-3 sm:py-2 py-1 px-1.5 rounded-xl transition-colors sm:min-w-[60px] cursor-pointer",
                     activeSection === "home"
                       ? "text-primary bg-muted"
                       : "text-muted-foreground hover:text-white",
@@ -129,7 +129,7 @@ const BottomNavigation = () => {
                 key={item.id}
                 onClick={() => scrollToSection(item.href)}
                 className={cn(
-                  "flex flex-col items-center justify-center sm:gap-1 gap-[1px] sm:px-3 sm:py-2 py-1 px-1.5 rounded-lg sm:rounded-xl transition-colors sm:min-w-[60px]",
+                  "flex flex-col items-center justify-center sm:gap-1 gap-px sm:px-3 sm:py-2 py-1 px-1.5 rounded-lg sm:rounded-xl transition-colors sm:min-w-15 cursor-pointer",
                   activeSection === item.id
                     ? "text-white bg-[#474747]"
                     : "text-[#a3aab5] hover:text-white",
@@ -158,7 +158,7 @@ const BottomNavigation = () => {
                   exit={{ width: 0, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                   onClick={scrollToContact}
-                  className="flex items-center justify-center p-3 rounded-xl bg-[#2071c8] text-white hover:opacity-80 transition-opacity"
+                  className="flex items-center justify-center cursor-pointer p-3 rounded-xl bg-[#2071c8] text-white hover:opacity-80 transition-opacity"
                   aria-label="Go to contact section"
                 >
                   <Send className="h-5 w-5" />

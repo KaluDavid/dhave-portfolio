@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/card";
 import { toast } from "sonner";
 import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
+import clsx from "clsx";
 
 const socialLinks = [
   {
@@ -23,28 +24,28 @@ const socialLinks = [
     href: "https://github.com/KaluDavid",
     icon: FiGithub,
     username: "@KaluDavid",
-    color: "hover:bg-gray-100 dark:hover:bg-gray-800",
+    color: "hover:bg-gray-100 ",
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/kalu-david-a2771723a/",
     icon: FiLinkedin,
     username: "/in/kalu-david",
-    color: "hover:bg-blue-50 dark:hover:bg-blue-900/20",
+    color: "hover:bg-blue-50 ",
   },
   {
     name: "X (Twitter)",
     href: "https://x.com/thedavidkalu",
     icon: FiTwitter,
     username: "@thedavidkalu",
-    color: "hover:bg-sky-50 dark:hover:bg-sky-900/20",
+    color: "hover:bg-sky-50 ",
   },
   {
     name: "Email",
     href: "mailto:kaludavidinyang@gmail.com",
     icon: Mail,
     username: "kaludavidinyang@gmail.com",
-    color: "hover:bg-green-50 dark:hover:bg-green-900/20",
+    color: "hover:bg-green-50",
   },
 ];
 
@@ -110,7 +111,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="py-24 bg-muted/30"
+      className="sm:py-24 py-[40px] bg-muted/30"
       aria-labelledby="contact-heading"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -206,7 +207,7 @@ const ContactSection = () => {
                 <CardHeader>
                   <CardTitle className="text-lg">Send a Message</CardTitle>
                   <CardDescription>
-                    I&apos;ll get back to you within 24 hours
+                    Let&apos;s create magic together
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -252,7 +253,7 @@ const ContactSection = () => {
                           onChange={handleChange}
                           required
                           minLength={2}
-                          className="transition-all focus:scale-[1.01]"
+                          className="transition-all bg-white! h-10 focus:scale-[1.01]"
                           disabled={isSubmitting}
                         />
                       </div>
@@ -266,7 +267,7 @@ const ContactSection = () => {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="transition-all focus:scale-[1.01]"
+                          className="transition-all bg-white! h-10 focus:scale-[1.01]"
                           disabled={isSubmitting}
                         />
                       </div>
@@ -281,13 +282,18 @@ const ContactSection = () => {
                           rows={4}
                           required
                           minLength={10}
-                          className="transition-all focus:scale-[1.01] resize-none"
+                          className="transition-all bg-white! h-30 focus:scale-[1.01] resize-none"
                           disabled={isSubmitting}
                         />
                       </div>
                       <Button
                         type="submit"
-                        className="w-full group h-11 rounded-md "
+                        className={clsx(
+                          "w-full group cursor-pointer h-11 rounded-md ",
+                          isSubmitting
+                            ? "bg-gray-300! text-gray-500! cursor-not-allowed"
+                            : "bg-black! text-white! cursor-pointer hover:bg-primary/90!",
+                        )}
                         disabled={
                           isSubmitting ||
                           !formData.name ||
@@ -307,7 +313,7 @@ const ContactSection = () => {
                           <>
                             Send Message
                             <Send
-                              className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
+                              className="ml-2 h-4 w-4  transition-transform group-hover:translate-x-1"
                               aria-hidden="true"
                             />
                           </>

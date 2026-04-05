@@ -17,7 +17,11 @@ import { cn } from "@/lib/utils";
 // ── WorkSection ───────────────────────────────────────────────────────────────
 const WorkSection = () => {
   return (
-    <section id="work" className="py-24" aria-labelledby="work-heading">
+    <section
+      id="work"
+      className="sm:py-24 py-[40px]"
+      aria-labelledby="work-heading"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="text-left mb-16 flex flex-col items-start justify-start">

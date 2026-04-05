@@ -157,7 +157,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               onClick={() => scrollTo("contact")}
-              className="min-w-40 rounded-md px-8 cursor-pointer hover:bg-accent h-11"
+              className="min-w-40 rounded-md px-8 cursor-pointer bg-white! hover:bg-accent! h-11"
             >
               <Send className="mr-2 h-4 w-4" />
               Contact Me
