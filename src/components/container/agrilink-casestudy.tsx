@@ -6,14 +6,13 @@ import {
   Callout,
   CodeBlock,
   StatRow,
-  CardGrid,
   DecisionRow,
   ScreenBlock,
   SubHeading,
   Divider,
   Fn_Image,
 } from "../reused/case-study-comp";
-import { FadeSection } from "../reused/fade";
+import { FadeSection, CardGrid } from "../reused/fade";
 
 export default function AgriLinkCaseStudyBody() {
   return (

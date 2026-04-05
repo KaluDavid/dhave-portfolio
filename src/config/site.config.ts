@@ -8,7 +8,7 @@ export const siteConfig = {
   description:
     "Frontend Engineer specialising in React, Next.js, and TypeScript. I help turn product ideas into usable, well-structured interfaces that users enjoy using.",
   url: "https://that-guy-dhave.vercel.app",
-  ogImage: "/og-image.png", // place a 1200×630 screenshot in public/
+  ogImage: "/david.jpg",
   twitter: "@thedavidkalu",
   linkedin: "https://www.linkedin.com/in/kalu-david-a2771723a/",
   github: "https://github.com/KaluDavid",

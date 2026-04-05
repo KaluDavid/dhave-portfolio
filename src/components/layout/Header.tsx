@@ -5,6 +5,7 @@ import { FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/Logo";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
+import clsx from "clsx";
 
 const Header = () => {
   const socialLinks = [
@@ -40,13 +41,15 @@ const Header = () => {
                   key={social.name}
                   variant="outline"
                   size="sm"
-                  className="hidden sm:flex"
+                  className={clsx(
+                    "hidden sm:flex p-3! rounded-md h-9 cursor-pointer",
+                  )}
                 >
                   <Link
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="gap-2"
+                    className="gap-2 flex items-center"
                   >
                     <social.icon className="h-4 w-4" />
                     <span className="text-sm">{social.label}</span>

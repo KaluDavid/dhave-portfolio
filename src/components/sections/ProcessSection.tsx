@@ -71,7 +71,7 @@ const ProcessSection = () => {
               </motion.h2>
             </div>
             <motion.p
-              className="text-muted-foreground sm:text-lg"
+              className="text-muted-foreground text-base"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -127,7 +127,7 @@ const ProcessSection = () => {
                     />
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground sm:text-lg leading-relaxed">
+                  <p className="text-muted-foreground text-base leading-relaxed">
                     {step.description}
                   </p>
                 </div>

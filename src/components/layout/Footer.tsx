@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-baseline justify-between gap-4">
-            <Logo className="sm:block hidden" />
+            <Logo className="sm:block hidden [&_img]:mb-1" />
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
               <span>
                 Connect on{" "}

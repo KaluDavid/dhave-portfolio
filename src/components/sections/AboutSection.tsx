@@ -78,7 +78,7 @@ const AboutSection = () => {
                 <h2 id="about-heading" className="sr-only">
                   About David
                 </h2>
-                <p className="sm:text-lg text-muted-foreground leading-relaxed">
+                <p className="text-base text-muted-foreground leading-relaxed">
                   I am an experienced{" "}
                   <span className="text-foreground font-medium">
                     Frontend Engineer
@@ -86,12 +86,12 @@ const AboutSection = () => {
                   driven by building responsive, user-friendly web applications
                   that balance both user needs and business goals.
                 </p>
-                <p className="text-muted-foreground leading-relaxed sm:text-lg">
+                <p className="text-muted-foreground leading-relaxed text-base">
                   Over time, I&apos;ve worked with startups and small teams,
                   collaborating closely with developers, designers, and product
                   managers to turn ideas into functional products.
                 </p>
-                <p className="text-muted-foreground leading-relaxed sm:text-lg">
+                <p className="text-muted-foreground leading-relaxed text-base">
                   My technical toolkit includes React.js, Next.js, TypeScript,
                   and Tailwind CSS for creating clean, interactive interfaces.
                 </p>

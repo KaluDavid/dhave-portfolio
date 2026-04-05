@@ -120,7 +120,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.p
-            className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
+            className="text-base text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
@@ -142,7 +142,7 @@ const Hero = () => {
             <Button
               size="lg"
               onClick={() => scrollTo("work")}
-              className="min-w-40 group"
+              className="min-w-40 group rounded-md px-8 cursor-pointer hover:bg-primary/90 h-11"
             >
               View Work
               <motion.span
@@ -157,7 +157,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               onClick={() => scrollTo("contact")}
-              className="min-w-40"
+              className="min-w-40 rounded-md px-8 cursor-pointer hover:bg-accent h-11"
             >
               <Send className="mr-2 h-4 w-4" />
               Contact Me

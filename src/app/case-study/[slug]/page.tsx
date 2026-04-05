@@ -10,9 +10,8 @@ import VaxNowCaseStudy from "@/components/casestudies/VaxNowCaseStudy";
 import AgriLinkCaseStudy from "@/components/casestudies/AgriLinkCaseStudy";
 import { metaObject } from "@/config/site.config";
 import { notFound } from "next/navigation";
+import { SpotdPasswordModal } from "@/components/SpotdPasswordModal";
 
-// ── Static params — tells Next.js which slugs to pre-render at build time ─────
-// This gives us static HTML for each case study = faster loads + better SEO
 export async function generateStaticParams() {
   return Object.keys(caseStudyData).map((slug) => ({ slug }));
 }
@@ -33,8 +32,6 @@ export async function generateMetadata({
   );
 }
 
-// ── Case Study page ───────────────────────────────────────────────────────────
-// Server Component — no 'use client' needed. Sub-components handle interactivity.
 export default async function CaseStudyPage({
   params,
 }: {
@@ -43,14 +40,16 @@ export default async function CaseStudyPage({
   const { slug } = await params;
   const study = caseStudyData[slug];
 
-  // 404 if slug doesn't exist in data
   if (!study) notFound();
 
-  // Render the correct case study body based on slug
   const renderCaseStudy = () => {
     switch (slug) {
       case "spotd":
-        return <SpotdCaseStudy />;
+        return (
+          <SpotdPasswordModal>
+            <SpotdCaseStudy />
+          </SpotdPasswordModal>
+        );
       case "agrilink-marketplace":
         return <AgriLinkCaseStudy />;
       case "vaxnow-web-app":
@@ -66,12 +65,12 @@ export default async function CaseStudyPage({
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            {/* Back navigation */}
-            <Link href="/#work" className="inline-block mb-8">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="mr-2 h-4 w-4" aria-hidden="true" />
-                Back to Home
-              </Button>
+            <Link
+              href="/#work"
+              className="flex items-center mb-8 cursor-pointer text-primary hover:underline "
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" aria-hidden="true" />
+              <span> Back to Home</span>{" "}
             </Link>
 
             {/* Case study header */}
@@ -123,22 +122,20 @@ export default async function CaseStudyPage({
 
               {/* External links row */}
               <div className="flex sm:flex-row flex-col sm:items-center mt-6">
-                {study.live_link && (
-                  <Link
-                    href={study.live_link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-full flex items-center w-fit gap-1 text-base font-medium underline text-primary sm:px-4 py-2 tracking-wide"
-                  >
-                    <img
-                      src="/browser.svg"
-                      alt=""
-                      className="object-contain size-5"
-                      aria-hidden="true"
-                    />
-                    VIEW PRODUCT
-                  </Link>
-                )}
+                <Link
+                  href={study.live_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full flex sm:hidden items-center w-fit gap-1 text-base font-medium underline text-primary sm:px-4 py-2 tracking-wide"
+                >
+                  <img
+                    src="/browser.svg"
+                    alt=""
+                    className="object-contain size-5"
+                    aria-hidden="true"
+                  />
+                  VIEW PRODUCT
+                </Link>
                 {study.github && (
                   <Link
                     href={study.github}

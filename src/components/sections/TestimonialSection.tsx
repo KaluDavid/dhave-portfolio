@@ -74,7 +74,7 @@ const TestimonialSection = () => {
             </motion.h2>
           </div>
           <motion.p
-            className="text-muted-foreground leading-[26px] text-left sm:text-lg"
+            className="text-muted-foreground leading-[26px] text-left text-base"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}

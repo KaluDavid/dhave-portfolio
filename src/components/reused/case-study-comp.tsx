@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 // ─── Animation Variants ──────────────────────────────────────────────────────
 
 export const fadeUp = {
@@ -11,30 +9,16 @@ export const fadeUp = {
   },
 };
 
-const staggerContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-// ─── FadeIn Section Wrapper ───────────────────────────────────────────────────
-// Abstract to: components/case-study/FadeSection.tsx
-
-// ─── Section Label ────────────────────────────────────────────────────────────
-// Abstract to: components/case-study/SectionLabel.tsx
-
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-2 mb-3">
-      <span className="text-[12px] font-mono tracking-[0.25em] uppercase text-blue-600 font-medium">
+      <span className="text-[12px] tracking-[0.25em] font-mono uppercase text-blue-600 font-medium">
         {children}
       </span>
       <div className="w-12 h-px bg-border" />
     </div>
   );
 }
-
-// ─── Section Heading ──────────────────────────────────────────────────────────
-// Abstract to: components/case-study/SectionHeading.tsx
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
@@ -65,7 +49,7 @@ function P({
 }) {
   return (
     <p
-      className={`sm:text-[14px] sm:text-lg font-mono leading-[1.85] text-muted-foreground mb-4 ${className}`}
+      className={`text-sm sm:text-base leading-[1.85] text-muted-foreground mb-4 ${className}`}
     >
       {children}
     </p>
@@ -247,49 +231,6 @@ function StatRow({ stats }: Stats) {
   );
 }
 
-// ─── Card Grid ────────────────────────────────────────────────────────────────
-// Abstract to: components/case-study/CardGrid.tsx
-
-interface Card {
-  cards: {
-    num: string;
-    title: string;
-    body: string;
-  }[];
-}
-function CardGrid({ cards }: Card) {
-  return (
-    <motion.div
-      variants={staggerContainer}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-5% 0px" }}
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 my-6"
-    >
-      {cards.map(({ num, title, body }) => (
-        <motion.div
-          key={title}
-          variants={fadeUp}
-          className="bg-background border border-border rounded-lg p-5 transition-colors hover:border-blue-400/60 group"
-        >
-          <div className="text-[12px] font-mono tracking-[0.2em] uppercase text-blue-600 mb-2">
-            {num}
-          </div>
-          <h4 className="text-sm font-semibold text-foreground mb-1.5">
-            {title}
-          </h4>
-          <p className="text-[12.5px] sm:text-sm  font-mono text-muted-foreground leading-relaxed m-0">
-            {body}
-          </p>
-        </motion.div>
-      ))}
-    </motion.div>
-  );
-}
-
-// ─── Decision Row ─────────────────────────────────────────────────────────────
-// Abstract to: components/case-study/DecisionRow.tsx
-
 function DecisionRow({ left, right }: { left: string; right: string }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 bg-muted/30 border border-border rounded-lg p-5">
@@ -392,7 +333,6 @@ export {
   Callout,
   CodeBlock,
   FolderTree,
-  CardGrid,
   DecisionRow,
   ScreenBlock,
   ReflectionItem,

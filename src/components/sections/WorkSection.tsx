@@ -48,7 +48,7 @@ const WorkSection = () => {
               </motion.h2>
             </div>
             <motion.p
-              className="text-muted-foreground sm:text-lg"
+              className="text-muted-foreground text-base"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -72,7 +72,7 @@ const WorkSection = () => {
               >
                 {/* Next.js Link — prefetches case study page on hover */}
                 <Link href={`/case-study/${project.slug}`} prefetch>
-                  <Card className="group overflow-hidden hover:shadow-xl transition-all duration-500 hover:border-primary/50 h-full">
+                  <Card className="group overflow-hidden hover:shadow-xl transition-all duration-500 p-0 gap-0 hover:border-primary/50 h-full">
                     <div
                       className={`relative overflow-hidden ${project.featured ? "sm:h-[80vh] h-[40vh]" : "h-[40vh]"}`}
                     >
@@ -88,7 +88,7 @@ const WorkSection = () => {
                         )}
                       />
                       <div
-                        className="absolute inset-0 bg-linear-to-t from-background/80 via-[30%] via-transparent to-transparent"
+                        className="absolute inset-0 bg-linear-to-t from-background/80 via-30% via-transparent to-transparent"
                         aria-hidden="true"
                       />
                       {project.featured && (
@@ -106,7 +106,7 @@ const WorkSection = () => {
                         <ExternalLink className="w-4 h-4 text-foreground" />
                       </motion.div>
                     </div>
-                    <CardHeader className="pb-2 border-t">
+                    <CardHeader className="pt-6 pb-2 px-6 border-t">
                       <div className="flex items-start justify-between gap-4">
                         <div>
                           <CardTitle className="text-xl group-hover:text-primary transition-colors flex items-center gap-2">
@@ -116,14 +116,14 @@ const WorkSection = () => {
                               aria-hidden="true"
                             />
                           </CardTitle>
-                          <CardDescription className="mt-1">
+                          <CardDescription className="text-xs text-muted-foreground">
                             {project.role}
                           </CardDescription>
                         </div>
                       </div>
                     </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground mb-4 line-clamp-2">
+                    <CardContent className="px-6 pb-6">
+                      <p className="text-muted-foreground mb-4  leading-5 line-clamp-2">
                         {project.description}
                       </p>
                       <div className="flex flex-wrap gap-2">

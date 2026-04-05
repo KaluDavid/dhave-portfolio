@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Mail, ArrowUpRight } from "lucide-react";
+import { Send, Mail, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -15,8 +15,42 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { toast } from "sonner";
-import { socialLinks } from "@/data/social-links";
+import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
 
+const socialLinks = [
+  {
+    name: "GitHub",
+    href: "https://github.com/KaluDavid",
+    icon: FiGithub,
+    username: "@KaluDavid",
+    color: "hover:bg-gray-100 dark:hover:bg-gray-800",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/kalu-david-a2771723a/",
+    icon: FiLinkedin,
+    username: "/in/kalu-david",
+    color: "hover:bg-blue-50 dark:hover:bg-blue-900/20",
+  },
+  {
+    name: "X (Twitter)",
+    href: "https://x.com/thedavidkalu",
+    icon: FiTwitter,
+    username: "@thedavidkalu",
+    color: "hover:bg-sky-50 dark:hover:bg-sky-900/20",
+  },
+  {
+    name: "Email",
+    href: "mailto:kaludavidinyang@gmail.com",
+    icon: Mail,
+    username: "kaludavidinyang@gmail.com",
+    color: "hover:bg-green-50 dark:hover:bg-green-900/20",
+  },
+];
+
+// ── ContactSection ────────────────────────────────────────────────────────────
+// Contact form POSTs to /api/contact → Resend → email address.
+// Shows success state inline after submission instead of resetting form.
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -24,6 +58,7 @@ const ContactSection = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -31,16 +66,45 @@ const ContactSection = () => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // TODO: replace mock with real email service
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1000));
-    toast.success("Message sent! 🎉", {
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    });
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        // API returned a validation or server error
+        toast.error("Failed to send", {
+          description: data.error || "Please try again.",
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Success
+      setIsSuccess(true);
+      toast.success("Message sent! 🎉", {
+        description: "I'll get back to you within 24 hours.",
+      });
+    } catch {
+      toast.error("Network error", {
+        description: "Check your connection and try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleReset = () => {
+    setIsSuccess(false);
     setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
   };
 
   return (
@@ -130,20 +194,6 @@ const ContactSection = () => {
                   </motion.a>
                 ))}
               </div>
-              <motion.div
-                className="mt-6 p-4 bg-primary/5 rounded-xl border border-primary/20"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-              >
-                <p className="text-sm text-muted-foreground">
-                  <span className="text-lg mr-2" aria-hidden="true">
-                    💡
-                  </span>
-                  Pro tip: I respond faster on Email DMs!
-                </p>
-              </motion.div>
             </motion.div>
 
             {/* Contact form */}
@@ -160,73 +210,111 @@ const ContactSection = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Name</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder="Your name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="transition-all focus:scale-[1.01]"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="your@email.com"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="transition-all focus:scale-[1.01]"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Message</Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        placeholder="Tell me about your project..."
-                        value={formData.message}
-                        onChange={handleChange}
-                        rows={4}
-                        required
-                        className="transition-all focus:scale-[1.01] resize-none"
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      className="w-full group"
-                      disabled={isSubmitting}
+                  {/* Success state — shown after successful submission */}
+                  {isSuccess ? (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="flex flex-col items-center text-center py-8 space-y-4"
                     >
-                      {isSubmitting ? (
-                        <motion.span
-                          animate={{ rotate: 360 }}
-                          transition={{
-                            duration: 1,
-                            repeat: Infinity,
-                            ease: "linear",
-                          }}
-                          aria-label="Sending..."
-                        >
-                          ⏳
-                        </motion.span>
-                      ) : (
-                        <>
-                          Send Message
-                          <Send
-                            className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
-                            aria-hidden="true"
-                          />
-                        </>
-                      )}
-                    </Button>
-                  </form>
+                      <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                        <CheckCircle2
+                          className="w-8 h-8 text-green-600"
+                          aria-hidden="true"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-foreground text-lg">
+                          Message Sent!
+                        </h3>
+                        <p className="text-muted-foreground text-sm mt-1">
+                          Thanks for reaching out. I&apos;ll get back to you
+                          ASAP...
+                        </p>
+                      </div>
+                      <Button variant="outline" size="sm" onClick={handleReset}>
+                        Send another message
+                      </Button>
+                    </motion.div>
+                  ) : (
+                    <form
+                      onSubmit={handleSubmit}
+                      className="space-y-4"
+                      noValidate
+                    >
+                      <div className="space-y-2">
+                        <Label htmlFor="name">Name</Label>
+                        <Input
+                          id="name"
+                          name="name"
+                          placeholder="Your name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          minLength={2}
+                          className="transition-all focus:scale-[1.01]"
+                          disabled={isSubmitting}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="email">Email</Label>
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          placeholder="your@email.com"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="transition-all focus:scale-[1.01]"
+                          disabled={isSubmitting}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="message">Message</Label>
+                        <Textarea
+                          id="message"
+                          name="message"
+                          placeholder="Tell me about your project..."
+                          value={formData.message}
+                          onChange={handleChange}
+                          rows={4}
+                          required
+                          minLength={10}
+                          className="transition-all focus:scale-[1.01] resize-none"
+                          disabled={isSubmitting}
+                        />
+                      </div>
+                      <Button
+                        type="submit"
+                        className="w-full group h-11 rounded-md "
+                        disabled={
+                          isSubmitting ||
+                          !formData.name ||
+                          !formData.email ||
+                          !formData.message
+                        }
+                      >
+                        {isSubmitting ? (
+                          <span className="flex items-center gap-2">
+                            <span
+                              className="w-4 h-4 rounded-full border-2 border-primary-foreground border-t-transparent animate-spin"
+                              aria-hidden="true"
+                            />
+                            Sending...
+                          </span>
+                        ) : (
+                          <>
+                            Send Message
+                            <Send
+                              className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
+                              aria-hidden="true"
+                            />
+                          </>
+                        )}
+                      </Button>
+                    </form>
+                  )}
                 </CardContent>
               </Card>
             </motion.div>

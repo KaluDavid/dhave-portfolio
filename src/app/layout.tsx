@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { Toaster } from "sonner";
 import { siteConfig } from "@/config/site.config";
+import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-// ── Font ────────────────────────────────────────────────────────────────────
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist-sans",
@@ -71,8 +70,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <TooltipProvider> {children}</TooltipProvider>
-          <Toaster position="top-right" richColors closeButton />
+          <TooltipProvider>{children}</TooltipProvider>
+          <Toaster
+            position="top-right"
+            richColors
+            closeButton
+            toastOptions={{
+              duration: 3000,
+            }}
+          />
         </ThemeProvider>
       </body>
     </html>
