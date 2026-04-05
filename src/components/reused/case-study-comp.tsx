@@ -282,7 +282,7 @@ function Fn_Image({ src, alt }: { src: string; alt: string }) {
       src={src}
       alt={alt}
       className="w-full border h-auto rounded-lg shadow-lg my-6"
-      loading="lazy"
+      loading="eager"
     />
   );
 }

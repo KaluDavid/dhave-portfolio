@@ -193,7 +193,7 @@ const AboutContainer = () => {
             >
               <div className="flex items-center gap-3 mb-6">
                 <img
-                  loading="lazy"
+                  loading="eager"
                   src="/tools.svg"
                   alt=""
                   className="w-6 h-6"
@@ -233,7 +233,7 @@ const AboutContainer = () => {
             >
               <div className="flex items-center gap-3 mb-6">
                 <img
-                  loading="lazy"
+                  loading="eager"
                   src="/reading.svg"
                   alt=""
                   className="w-10 h-10"

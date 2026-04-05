@@ -14,7 +14,7 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="sm:py-24 py-[40px] relative overflow-hidden"
+      className="py-24 relative overflow-hidden"
       aria-labelledby="about-heading"
     >
       {/* Subtle grid background */}
@@ -48,7 +48,7 @@ const AboutSection = () => {
                     aria-hidden="true"
                   />
                   <img
-                    loading="lazy"
+                    loading="eager"
                     src="/david.jpg"
                     alt="David Kalu"
                     className="w-full aspect-square object-cover rounded-2xl relative z-10 shadow-xl"
@@ -111,7 +111,7 @@ const AboutSection = () => {
                         whileHover={{ scale: 1.05 }}
                       >
                         <img
-                          loading="lazy"
+                          loading="eager"
                           src={fact.emoji}
                           alt=""
                           className="size-4"

@@ -41,7 +41,7 @@ export function SpotdPasswordModal({ children }: SpotdPasswordModalProps) {
     await validatePassword(password);
   };
 
-  const handleGoBack = () => router.push("/");
+  const handleGoBack = () => router.push("/#work");
 
   // Still loading from localStorage
   if (hasAccess === null) {
@@ -60,7 +60,7 @@ export function SpotdPasswordModal({ children }: SpotdPasswordModalProps) {
 
   // No access — show password modal (full-page overlay, route is blocked)
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center px-4">
+    <div className="fixed inset-0 bg-background/70 backdrop-blur-md flex items-center justify-center px-4 z-[999]">
       <AnimatePresence>
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -120,7 +120,7 @@ export function SpotdPasswordModal({ children }: SpotdPasswordModalProps) {
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                         aria-label={
                           showPassword ? "Hide password" : "Show password"
                         }
@@ -159,7 +159,7 @@ export function SpotdPasswordModal({ children }: SpotdPasswordModalProps) {
                     disabled={isChecking || !password.trim()}
                   >
                     {isChecking ? (
-                      <span className="flex items-center gap-2">
+                      <span className="flex  items-center gap-2">
                         <span
                           className="w-4 h-4 rounded-full border-2 border-primary-foreground border-t-transparent animate-spin"
                           aria-hidden="true"
@@ -167,7 +167,7 @@ export function SpotdPasswordModal({ children }: SpotdPasswordModalProps) {
                         Verifying...
                       </span>
                     ) : (
-                      <span className="flex items-center gap-2">
+                      <span className="flex cursor-pointer items-center gap-2">
                         <Lock className="h-4 w-4" aria-hidden="true" />
                         Unlock Case Study
                       </span>
@@ -184,7 +184,7 @@ export function SpotdPasswordModal({ children }: SpotdPasswordModalProps) {
                 <div className="border-t border-border pt-4">
                   <Button
                     variant="ghost"
-                    className="w-full text-muted-foreground hover:text-foreground"
+                    className="w-full h-11 bg-white! cursor-pointer text-muted-foreground hover:text-foreground"
                     onClick={handleGoBack}
                   >
                     <ArrowLeft className="h-4 w-4 mr-2" aria-hidden="true" />

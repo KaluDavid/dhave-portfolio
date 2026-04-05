@@ -53,7 +53,7 @@ const ProcessSection = () => {
                 className="inline-block sm:mb-4"
               >
                 <img
-                  loading="lazy"
+                  loading="eager"
                   src="/process.svg"
                   alt=""
                   className="size-10"
@@ -149,7 +149,7 @@ const ProcessSection = () => {
                 aria-hidden="true"
               >
                 <img
-                  loading="lazy"
+                  loading="eager"
                   src="/circle.svg"
                   alt=""
                   className="size-[20px]"

@@ -233,7 +233,12 @@ const ContactSection = () => {
                           ASAP...
                         </p>
                       </div>
-                      <Button variant="outline" size="sm" onClick={handleReset}>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={handleReset}
+                        className="h-11 px-8 bg-white! hover:bg-accent!"
+                      >
                         Send another message
                       </Button>
                     </motion.div>

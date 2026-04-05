@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
 // ── POST /api/contact ─────────────────────────────────────────────────────────
 // Receives form data, validates it, and sends an email via Resend.
@@ -9,9 +9,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // server-side validation
 function validate(data: { name: string; email: string; message: string }) {
   const errors: string[] = [];
-  if (!data.name?.trim()) errors.push('Name is required');
-  if (!data.email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.push('Valid email is required');
-  if (!data.message?.trim() || data.message.trim().length < 10) errors.push('Message must be at least 10 characters');
+  if (!data.name?.trim()) errors.push("Name is required");
+  if (!data.email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email))
+    errors.push("Valid email is required");
+  if (!data.message?.trim() || data.message.trim().length < 10)
+    errors.push("Message must be at least 10 characters");
   return errors;
 }
 
@@ -23,13 +25,13 @@ export async function POST(req: Request) {
     // Validate
     const errors = validate({ name, email, message });
     if (errors.length > 0) {
-      return NextResponse.json({ error: errors.join(', ') }, { status: 400 });
+      return NextResponse.json({ error: errors.join(", ") }, { status: 400 });
     }
 
     // Send email via Resend
     const { data, error } = await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>',
-      to: ['kaludavidinyang@gmail.com'],
+      from: "Portfolio Contact <onboarding@resend.dev>",
+      to: ["kaludavidinyang@gmail.com"],
       replyTo: email, // clicking Reply in Gmail goes directly to the sender
       subject: `New message from ${name} — Portfolio`,
       // Plain text fallback
@@ -85,7 +87,7 @@ export async function POST(req: Request) {
               <div style="border-top:1px solid #e4e4e7;padding:20px 32px;background:#fafafa;">
                 <p style="margin:0;font-size:12px;color:#a1a1aa;">
                   Sent via your portfolio contact form at
-                  <a href="https://that-guy-dhave.vercel.app" style="color:#71717a;">that-guy-dhave.vercel.app</a>
+                  <a href="https://kaludavid.vercel.app/" style="color:#71717a;">Kalu David</a>
                 </p>
               </div>
             </div>
@@ -95,13 +97,19 @@ export async function POST(req: Request) {
     });
 
     if (error) {
-      console.error('[Contact API] Resend error:', error);
-      return NextResponse.json({ error: 'Failed to send message. Please try again.' }, { status: 500 });
+      console.error("[Contact API] Resend error:", error);
+      return NextResponse.json(
+        { error: "Failed to send message. Please try again." },
+        { status: 500 },
+      );
     }
 
     return NextResponse.json({ success: true, id: data?.id });
   } catch (err) {
-    console.error('[Contact API] Unexpected error:', err);
-    return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
+    console.error("[Contact API] Unexpected error:", err);
+    return NextResponse.json(
+      { error: "Something went wrong. Please try again." },
+      { status: 500 },
+    );
   }
 }

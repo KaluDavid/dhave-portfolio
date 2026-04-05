@@ -7,7 +7,7 @@ export const siteConfig = {
   title: "David Kalu — Frontend Engineer",
   description:
     "Frontend Engineer specialising in React, Next.js, and TypeScript. I help turn product ideas into usable, well-structured interfaces that users enjoy using.",
-  url: "https://that-guy-dhave.vercel.app",
+  url: "https://kaludavid.vercel.app",
   ogImage: "/david.jpg",
   twitter: "@thedavidkalu",
   linkedin: "https://www.linkedin.com/in/kalu-david-a2771723a/",

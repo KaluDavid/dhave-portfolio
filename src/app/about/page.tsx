@@ -7,7 +7,7 @@ export const metadata = metaObject(
     title: "About David Kalu — Frontend Engineer",
     description:
       "Work experience, education, and technologies used by David Kalu, a Frontend Engineer based in Nigeria.",
-    url: "https://that-guy-dhave.vercel.app/about",
+    url: "https://kaludavid.vercel.app//about",
     siteName: "David Kalu",
     images: [{ url: "/david.jpg", width: 1200, height: 630 }],
     locale: "en_NG",

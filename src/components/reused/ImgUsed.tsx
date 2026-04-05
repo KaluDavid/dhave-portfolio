@@ -15,7 +15,7 @@ const ImgUsed = ({ src }: { src?: string }) => {
         <div className="absolute inset-0 border-2 border-primary/30 rounded-2xl translate-x-4 translate-y-4 w-full" />
         {src ? (
           <img
-            loading="lazy"
+            loading="eager"
             src={src}
             alt="David"
             className="aspect-square object-cover rounded-2xl relative z-10 shadow-xl w-full"

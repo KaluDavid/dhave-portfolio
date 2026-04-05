@@ -15,12 +15,12 @@ const Logo = ({ className = "" }: LogoProps) => {
       whileHover={{ scale: 1.02 }}
     >
       <img
-        loading="lazy"
+        loading="eager"
         src="/loggo2.png"
         alt="David Kalu logo"
-        className="sm:size-10 size-6 object-contain"
+        className="sm:size-10 size-8 object-contain"
       />
-      <div className="flex gap-0.5 text-left *:tracking-tighter pb-1 *:text-base *:font-semibold *:leading-px">
+      <div className="hidden sm:flex gap-0.5 text-left *:tracking-tighter pb-1 *:text-base *:font-semibold *:leading-px">
         <span>David</span>
         <span>Kalu</span>
       </div>

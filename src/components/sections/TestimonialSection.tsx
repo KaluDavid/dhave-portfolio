@@ -56,7 +56,7 @@ const TestimonialSection = () => {
               transition={{ type: "spring" }}
             >
               <img
-                loading="lazy"
+                loading="eager"
                 src="speaking.svg"
                 className="w-10 h-10"
                 alt=""

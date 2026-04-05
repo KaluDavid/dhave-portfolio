@@ -29,7 +29,7 @@ const ProjectShowcase = () => {
 
   return (
     <section
-      className="sm:py-16 max-sm:-mt-17.5 overflow-hidden bg-muted/20"
+      className="sm:py-16 max-sm:-mt-15 overflow-hidden bg-muted/20"
       aria-label="Visual work samples"
     >
       <div className="container mx-auto px-4">
@@ -45,7 +45,12 @@ const ProjectShowcase = () => {
             transition={{ duration: 2, repeat: Infinity }}
             aria-hidden="true"
           >
-            <img loading="lazy" src="/palette.svg" alt="" className="size-10" />
+            <img
+              loading="eager"
+              src="/palette.svg"
+              alt=""
+              className="size-10"
+            />
           </motion.span>
         </motion.p>
       </div>
@@ -54,7 +59,7 @@ const ProjectShowcase = () => {
         {/* Scrollable gallery — scrollbar hidden via CSS */}
         <div
           ref={containerRef}
-          className="flex gap-6 px-4 py-12 overflow-y-hidden overflow-x-auto"
+          className="flex gap-6 px-4 pb-12 overflow-y-hidden overflow-x-auto"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           role="list"
         >
@@ -72,7 +77,7 @@ const ProjectShowcase = () => {
             >
               <div className="w-72 h-48 rounded-xl overflow-hidden shadow-lg border border-border bg-card">
                 <img
-                  loading="lazy"
+                  loading="eager"
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"

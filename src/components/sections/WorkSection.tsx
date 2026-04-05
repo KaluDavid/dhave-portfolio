@@ -34,7 +34,7 @@ const WorkSection = () => {
                 transition={{ type: "spring", stiffness: 200 }}
               >
                 <img
-                  loading="lazy"
+                  loading="eager"
                   src="case.svg"
                   className="size-12"
                   alt=""
@@ -81,7 +81,7 @@ const WorkSection = () => {
                       className={`relative overflow-hidden ${project.featured ? "sm:h-[80vh] h-[40vh]" : "h-[40vh]"}`}
                     >
                       <img
-                        loading="lazy"
+                        loading="eager"
                         src={project.image}
                         alt={project.title}
                         className={cn(
