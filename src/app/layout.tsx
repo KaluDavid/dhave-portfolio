@@ -61,9 +61,31 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "David Kalu",
+    url: "https://kaludavid.vercel.app",
+    sameAs: [
+      "https://github.com/KaluDavid",
+      "https://www.linkedin.com/in/kalu-david-a2771723a/",
+    ],
+    jobTitle: "Frontend Engineer",
+    worksFor: {
+      "@type": "Organization",
+      name: "Freelance",
+    },
+  };
+
   return (
     <html lang="en" suppressHydrationWarning className={geist.variable}>
       <body suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd),
+          }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
