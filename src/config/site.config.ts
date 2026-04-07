@@ -70,6 +70,6 @@ export function metaObject(
       },
     },
     // Verification tokens — add when you set up Google Search Console
-    // verification: { google: 'YOUR_TOKEN' },
+    verification: { google: "eaNgZ2CSiry3iYfvLAXIDDHcvSnLjBM6C_s-u5HN1U8" },
   };
 }
