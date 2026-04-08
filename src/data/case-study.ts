@@ -13,7 +13,7 @@ const caseStudyData: Record<string, CaseStudyData> = {
   spotd: {
     title: "Spot'D",
     role: "Lead Frontend Engineer",
-    duration: "6 months",
+    duration: "In progress",
     year: "2024",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Redis"],
     live_link: "",

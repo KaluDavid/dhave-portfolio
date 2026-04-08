@@ -8,7 +8,7 @@ const roles = ["Frontend Engineer", "UI Specialist", "Product Thinker"];
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-start justify-start max-[365px]:pt-[8rem] pt-25 sm:pt-36 relative overflow-hidden">
+    <section className="min-h-screen flex items-start justify-start max-[365px]:pt-[8rem] pt-25 sm:pt-43 relative overflow-hidden">
       {/* Floating decorative shapes */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <motion.div
