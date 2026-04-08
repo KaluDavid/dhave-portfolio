@@ -17,8 +17,7 @@ import Footer from "../layout/Footer";
 
 const AboutContainer = () => {
   const resumeUrl =
-    "https://docs.google.com/document/d/1qmGX83JoCWQINbADDMjE_JDcqh29E4Mu6zgZHNkrBPg/edit?usp=sharing";
-
+    "https://docs.google.com/document/d/1hjaENYT9B8xNVJSjuMwVrgP-nmjZXSNbzksQsWWtWjE/";
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Header />

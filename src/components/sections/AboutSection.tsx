@@ -166,7 +166,7 @@ const AboutSection = () => {
                       </motion.span>
                     </Link>
                     <Link
-                      href="https://docs.google.com/document/d/1qmGX83JoCWQINbADDMjE_JDcqh29E4Mu6zgZHNkrBPg/edit?usp=sharing"
+                      href="https://docs.google.com/document/d/1hjaENYT9B8xNVJSjuMwVrgP-nmjZXSNbzksQsWWtWjE/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-primary hover:underline underline-offset-4 font-medium"

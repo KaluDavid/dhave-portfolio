@@ -11,7 +11,7 @@ const Header = () => {
   const socialLinks = [
     {
       name: "Resume",
-      href: "https://docs.google.com/document/d/1qmGX83JoCWQINbADDMjE_JDcqh29E4Mu6zgZHNkrBPg/edit?usp=sharing",
+      href: "https://docs.google.com/document/d/1hjaENYT9B8xNVJSjuMwVrgP-nmjZXSNbzksQsWWtWjE/",
       icon: FileText,
       label: "View Resume",
     },
@@ -71,7 +71,7 @@ const Header = () => {
             )}
             {/* Mobile: resume as icon only */}
             <Link
-              href="https://docs.google.com/document/d/1qmGX83JoCWQINbADDMjE_JDcqh29E4Mu6zgZHNkrBPg/edit?usp=sharing"
+              href="https://docs.google.com/document/d/1hjaENYT9B8xNVJSjuMwVrgP-nmjZXSNbzksQsWWtWjE/"
               target="_blank"
               rel="noopener noreferrer"
               className="sm:hidden text-muted-foreground hover:text-foreground transition-colors p-2"
