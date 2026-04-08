@@ -86,9 +86,7 @@ const WorkSection = () => {
                         alt={project.title}
                         className={cn(
                           "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110",
-                          project.title === "Spot'D Web App"
-                            ? "object-center"
-                            : "object-left",
+                          project.img_style,
                         )}
                       />
                       <div

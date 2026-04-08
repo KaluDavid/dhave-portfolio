@@ -7,6 +7,7 @@ interface Project {
   slug: string;
   image: string;
   featured?: boolean;
+  img_style: string;
 }
 
 const projects: Project[] = [
@@ -29,6 +30,7 @@ const projects: Project[] = [
     slug: "agrilink-marketplace",
     image: "/home.png",
     featured: true,
+    img_style: "object-left",
   },
   {
     id: "2",
@@ -39,6 +41,7 @@ const projects: Project[] = [
     tech: ["API Integration", "TypeScript", "Next.js", "Tailwind CSS"],
     slug: "spotd",
     image: "/spot.svg",
+    img_style: "object-top object-center",
   },
   {
     id: "3",
@@ -56,6 +59,7 @@ const projects: Project[] = [
     ],
     slug: "vaxnow-web-app",
     image: "/vax.svg",
+    img_style: "object-top",
   },
 ];
 
