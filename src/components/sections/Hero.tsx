@@ -56,7 +56,7 @@ const Hero = () => {
 
           {/* Display headline — large, lowercase, teal accent on key phrase */}
           <motion.h1
-            className="text-[clamp(2.6rem,7vw,5.5rem)] font-medium sm:font-bold leading-[1.12] sm:leading-[1.05] tracking-tight text-foreground lowercase"
+            className="text-[clamp(2.6rem,7vw,5.5rem)] font-bold leading-[1.15] sm:leading-[1.05] tracking-tight text-foreground lowercase"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
@@ -70,7 +70,7 @@ const Hero = () => {
 
           {/* CTA row — pill button + open to work dot */}
           <motion.div
-            className="flex items-center gap-6 pt-8 flex-nowrap"
+            className="flex items-center sm:gap-6 pt-8 sm:flex-row flex-col gap-4 w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55 }}
@@ -80,7 +80,7 @@ const Hero = () => {
               href={"mailto:kaludavidinyang@gmail.com"}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 pl-6 pr-2 py-2 rounded-full border border-border bg-background hover:bg-muted transition-colors group cursor-pointer"
+              className="flex items-center justify-center gap-3 pl-6 pr-2 py-2 rounded-full border border-border bg-background hover:bg-muted transition-colors group cursor-pointer sm:w-fit w-full"
             >
               <span className="text-sm font-medium text-foreground">
                 Send me an email
@@ -106,7 +106,7 @@ const Hero = () => {
           {/* Scroll cue */}
         </div>
         <motion.div
-          className="animate-bounce flex items-center mt-7 justify-center"
+          className="animate-bounce flex items-center mt-13 sm:mt-7 justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
