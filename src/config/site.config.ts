@@ -69,7 +69,6 @@ export function metaObject(
         "max-snippet": -1,
       },
     },
-    // Verification tokens — add when you set up Google Search Console
     verification: { google: "eaNgZ2CSiry3iYfvLAXIDDHcvSnLjBM6C_s-u5HN1U8" },
   };
 }

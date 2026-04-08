@@ -20,7 +20,7 @@ const Logo = ({ className = "" }: LogoProps) => {
         alt="David Kalu logo"
         className="sm:size-10 size-8 object-contain"
       />
-      <div className="hidden sm:flex gap-0.5 text-left *:tracking-tighter pb-1 *:text-base *:font-semibold *:leading-px">
+      <div className="hidden sm:flex gap-0.5 text-left *:tracking-tighter *:text-base *:font-semibold *:leading-px">
         <span>David</span>
         <span>Kalu</span>
       </div>

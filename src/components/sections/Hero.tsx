@@ -1,20 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, BriefcaseBusiness, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowDown, Send } from "lucide-react";
+import Link from "next/link";
 
-// ── Hero ─────────────────────────────────────────────────────────────────────
-// Full-viewport opening section. Animated avatar, headline, CTA buttons.
-// Scroll helpers use getElementById — safe in client component.
+const roles = ["Frontend Engineer", "UI Specialist", "Product Thinker"];
+
 const Hero = () => {
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section className="min-h-screen flex items-center justify-center max-[365px]:pt-[5rem] pt-25 sm:pt-36 relative overflow-hidden">
-      {/* Floating decorative shapes — purely visual, no semantic meaning */}
+    <section className="min-h-screen flex items-start justify-start max-[365px]:pt-[5rem] pt-25 sm:pt-36 relative overflow-hidden">
+      {/* Floating decorative shapes */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <motion.div
           className="absolute top-20 left-10 w-20 h-20 border-2 border-primary/20 rounded-full"
@@ -38,142 +33,87 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Avatar with availability badge */}
+      <div className="container mx-auto relative z-10">
+        <div className="mx-auto flex flex-col items-start px-8">
+          {/* Role tags — bullet separated, like the reference */}
           <motion.div
-            className="relative inline-block mb-8"
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-          >
-            <div className="relative">
-              <img
-                src="/david.jpg"
-                alt="David Kalu — Frontend Engineer"
-                className="w-28 h-28 rounded-full object-cover border-4 border-background shadow-xl"
-                // Priority load — this is above the fold
-                loading="eager"
-              />
-              {/* Pulsing ring — draws attention to availability */}
-              <motion.div
-                className="absolute inset-0 rounded-full border-2 border-primary/50"
-                animate={{ scale: [1, 1.15, 1], opacity: [1, 0, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                aria-hidden="true"
-              />
-            </div>
-            <motion.div
-              className="absolute -top-2 -right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium shadow-lg"
-              style={{ rotate: 12 }}
-              animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <span className="flex items-center gap-1">
-                <span
-                  className="w-2 h-2 bg-green-400 rounded-full animate-pulse"
-                  aria-hidden="true"
-                />
-                Available
-              </span>
-            </motion.div>
-          </motion.div>
-
-          <motion.p
-            className="text-muted-foreground text-lg"
-            initial={{ opacity: 0, y: 20 }}
+            className="flex items-center gap-3 flex-wrap"
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <span>Hi! there</span>
-            <img
-              src="/wave.svg"
-              alt=""
-              className="size-9 inline-block"
-              aria-hidden="true"
-            />
-            , <span>I&apos;m</span>
-          </motion.p>
+            {roles.map((role, i) => (
+              <span key={role} className="flex items-center gap-3">
+                <span className="text-base text-muted-foreground font-medium tracking-tight">
+                  {role}
+                </span>
+                {i < roles.length - 1 && (
+                  <span className="text-foreground text-lg select-none">•</span>
+                )}
+              </span>
+            ))}
+          </motion.div>
 
+          {/* Display headline — large, lowercase, teal accent on key phrase */}
           <motion.h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-2 leading-tight"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-[clamp(2.6rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-tight text-foreground lowercase"
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.35 }}
           >
-            David Kalu
+            helping{" "}
+            <span className="text-teal-600 dark:text-teal-400">
+              product teams
+            </span>{" "}
+            ship interfaces users love and businesses grow with.
           </motion.h1>
 
+          {/* CTA row — pill button + open to work dot */}
           <motion.div
-            className="flex items-center justify-center gap-2 mb-6"
+            className="flex items-center gap-6 pt-8 flex-wrap"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.55 }}
           >
-            <BriefcaseBusiness
-              className="h-5 w-5 text-muted-foreground"
-              aria-hidden="true"
-            />
-            <p className="text-base sm:text-xl text-muted-foreground">
-              Frontend Engineer
-            </p>
-          </motion.div>
+            {/* Pill button — matches the reference style */}
+            <Link
+              href={"mailto:kaludavidinyang@gmail.com"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 pl-6 pr-2 py-2 rounded-full border border-border bg-background hover:bg-muted transition-colors group cursor-pointer"
+            >
+              <span className="text-sm font-medium text-foreground">
+                Send me an email
+              </span>
+              <span className="w-9 h-9 rounded-full bg-primary flex items-center justify-center group-hover:bg-primary/90 transition-colors shrink-0">
+                <Send
+                  className="h-3.5 w-3.5 text-primary-foreground"
+                  aria-hidden="true"
+                />
+              </span>
+            </Link>
 
-          <motion.p
-            className="text-base text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-          >
-            I help turn product ideas into usable, well-structured interfaces
-            that users enjoy using, and teams can confidently work with during{" "}
-            <span className="text-foreground font-medium">
-              development lifecycle
+            {/* Open to work indicator */}
+            <span className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
+              <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-teal-600" />
+              </span>
+              Open to work
             </span>
-            .
-          </motion.p>
-
-          <motion.div
-            className="flex items-center justify-center gap-4 mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 }}
-          >
-            <Button
-              size="lg"
-              onClick={() => scrollTo("work")}
-              className="min-w-40 group rounded-md px-8 cursor-pointer hover:bg-primary/90 h-11"
-            >
-              View Work
-              <motion.span
-                className="ml-2"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1, repeat: Infinity }}
-              >
-                →
-              </motion.span>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => scrollTo("contact")}
-              className="min-w-40 rounded-md px-8 cursor-pointer bg-white! hover:bg-accent! h-11"
-            >
-              <Send className="mr-2 h-4 w-4" />
-              Contact Me
-            </Button>
           </motion.div>
 
-          <motion.div
-            className="animate-bounce"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            aria-hidden="true"
-          >
-            <ArrowDown className="h-6 w-6 mx-auto text-muted-foreground" />
-          </motion.div>
+          {/* Scroll cue */}
         </div>
+        <motion.div
+          className="animate-bounce flex items-center mt-5 justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          aria-hidden="true"
+        >
+          <ArrowDown className="h-5 w-5 text-muted-foreground" />
+        </motion.div>
       </div>
     </section>
   );

@@ -158,7 +158,7 @@ const BottomNavigation = () => {
                   exit={{ width: 0, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                   onClick={scrollToContact}
-                  className="flex items-center justify-center cursor-pointer p-3 rounded-xl bg-[#2071c8] text-white hover:opacity-80 transition-opacity"
+                  className="flex items-center justify-center cursor-pointer p-3 rounded-xl bg-teal-600 text-white hover:opacity-80 transition-opacity"
                   aria-label="Go to contact section"
                 >
                   <Send className="h-5 w-5" />

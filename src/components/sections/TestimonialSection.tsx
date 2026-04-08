@@ -45,7 +45,7 @@ const TestimonialSection = () => {
       className="sm:py-24 py-[40px] bg-muted/30 border-t border-border"
       aria-labelledby="testimonials-heading"
     >
-      <div className="container px-4 sm:px-6 lg:px-8 max-w-[62rem] mx-auto">
+      <div className="container px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <div className="sm:text-center mb-8 sm:mb-16 flex flex-col sm:items-center sm:justify-center sm:mx-auto">
           <div className="flex sm:flex-row flex-col sm:items-center gap-0.5 sm:gap-2">
             <motion.span

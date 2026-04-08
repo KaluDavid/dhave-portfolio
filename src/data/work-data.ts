@@ -27,11 +27,21 @@ const projects: Project[] = [
       "API Integration",
     ],
     slug: "agrilink-marketplace",
-    image: "/agri.jpg",
+    image: "/home.png",
     featured: true,
   },
   {
     id: "2",
+    title: "Spot'D Web App",
+    description:
+      "Led the frontend architecture for a complete platform overhaul, improving conversion rates by 35% and reducing page load times by 60%.",
+    role: "Lead Frontend Engineer",
+    tech: ["API Integration", "TypeScript", "Next.js", "Tailwind CSS"],
+    slug: "spotd",
+    image: "/spot.svg",
+  },
+  {
+    id: "3",
     title: "VaxNow Health App",
     description:
       "Accelerating digital health adoption by creating a user friendly website that clearly communicates impact.",
@@ -46,16 +56,6 @@ const projects: Project[] = [
     ],
     slug: "vaxnow-web-app",
     image: "/vax.svg",
-  },
-  {
-    id: "3",
-    title: "Spot'D Web App",
-    description:
-      "Led the frontend architecture for a complete platform overhaul, improving conversion rates by 35% and reducing page load times by 60%.",
-    role: "Lead Frontend Engineer",
-    tech: ["API Integration", "TypeScript", "Next.js", "Tailwind CSS"],
-    slug: "spotd",
-    image: "/spot.svg",
   },
 ];
 

@@ -12,7 +12,7 @@ export const fadeUp = {
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-2 mb-3">
-      <span className="text-[12px] tracking-[0.25em] font-mono uppercase text-blue-600 font-medium">
+      <span className="text-[12px] tracking-[0.25em] font-mono uppercase text-teal-600 font-medium">
         {children}
       </span>
       <div className="w-12 h-px bg-border" />
@@ -71,7 +71,7 @@ function IC({ children }: { children: React.ReactNode }) {
 
 function Callout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-muted/50 border-l-[3px] border-blue-500 px-5 py-4 my-6 rounded-r-md">
+    <div className="bg-muted/50 border-l-[3px] border-teal-500 px-5 py-4 my-6 rounded-r-md">
       <p className="text-[14px] font-mono italic text-muted-foreground leading-relaxed m-0">
         {children}
       </p>
@@ -95,7 +95,7 @@ function CodeBlock({
       <div className="flex items-center gap-1.5 px-4 py-2.5 bg-zinc-900 border-b border-zinc-800">
         <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
         <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
-        <span className="w-2.5 h-2.5 rounded-full bg-blue-400/80" />
+        <span className="w-2.5 h-2.5 rounded-full bg-teal-400/80" />
         {label && (
           <span className="ml-2 text-[12px] font-mono tracking-widest uppercase text-zinc-500">
             {label}
@@ -219,7 +219,7 @@ function StatRow({ stats }: Stats) {
               : ""
           }`}
         >
-          <span className="block text-lg font-bold text-blue-600 leading-none mb-1">
+          <span className="block text-lg font-bold text-teal-600 leading-none mb-1">
             {num}
           </span>
           <span className="text-[12px] font-mono tracking-[0.15em] uppercase text-muted-foreground">
@@ -302,7 +302,7 @@ function ReflectionItem({
   return (
     <div className="flex gap-4 mb-6 items-start">
       <div className="shrink-0 w-7 h-7 rounded-full border border-border flex items-center justify-center mt-0.5">
-        <span className="text-[12px] font-mono text-blue-600">{num}</span>
+        <span className="text-[12px] font-mono text-teal-600">{num}</span>
       </div>
       <div>
         <SubHeading>{title}</SubHeading>

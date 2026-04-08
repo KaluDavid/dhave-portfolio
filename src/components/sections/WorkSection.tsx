@@ -23,7 +23,7 @@ const WorkSection = () => {
       aria-labelledby="work-heading"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="text-left mb-16 flex flex-col items-start justify-start">
             <div className="flex sm:flex-row flex-col sm:items-center leading-[2px] sm:gap-2">
               <motion.span
@@ -64,11 +64,11 @@ const WorkSection = () => {
             </motion.p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="flex flex-col items-center gap-6">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className={project.featured ? "md:col-span-2" : ""}
+                className={"w-full"}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -76,16 +76,16 @@ const WorkSection = () => {
               >
                 {/* Next.js Link — prefetches case study page on hover */}
                 <Link href={`/case-study/${project.slug}`} prefetch>
-                  <Card className="group overflow-hidden hover:shadow-xl transition-all duration-500 p-0 gap-0 hover:border-primary/50 h-full">
+                  <Card className="group overflow-hidden hover:shadow-xl w-full transition-all duration-500 p-0 gap-0 hover:border-primary/50 h-full">
                     <div
-                      className={`relative overflow-hidden ${project.featured ? "sm:h-[80vh] h-[40vh]" : "h-[40vh]"}`}
+                      className={`relative overflow-hidden w-full sm:h-[80vh] h-[40vh]`}
                     >
                       <img
                         loading="eager"
                         src={project.image}
                         alt={project.title}
                         className={cn(
-                          "w-full h-full object-cover sm:object-center transition-transform duration-700 group-hover:scale-110",
+                          "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110",
                           project.title === "Spot'D Web App"
                             ? "object-center"
                             : "object-left",
@@ -103,7 +103,7 @@ const WorkSection = () => {
                         </div>
                       )}
                       <motion.div
-                        className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="absolute top-4 right-4 bg-teal-400 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
                         whileHover={{ scale: 1.1 }}
                         aria-hidden="true"
                       >
