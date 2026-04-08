@@ -8,7 +8,7 @@ const roles = ["Frontend Engineer", "UI Specialist", "Product Thinker"];
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-start justify-start max-[365px]:pt-[5rem] pt-25 sm:pt-36 relative overflow-hidden">
+    <section className="min-h-screen flex items-start justify-start max-[365px]:pt-[8rem] pt-25 sm:pt-36 relative overflow-hidden">
       {/* Floating decorative shapes */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <motion.div
@@ -34,17 +34,17 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto relative z-10">
-        <div className="mx-auto flex flex-col items-start px-8">
+        <div className="mx-auto flex flex-col items-start px-4 sm:px-8">
           {/* Role tags — bullet separated, like the reference */}
           <motion.div
-            className="flex items-center gap-3 flex-wrap"
+            className="flex items-center gap-3 flex-nowrap whitespace-nowrap"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
             {roles.map((role, i) => (
-              <span key={role} className="flex items-center gap-3">
-                <span className="text-base text-muted-foreground font-medium tracking-tight">
+              <span key={role} className="flex items-center gap-1 sm:gap-3">
+                <span className="text-sm sm:text-base text-muted-foreground font-medium tracking-tight">
                   {role}
                 </span>
                 {i < roles.length - 1 && (
@@ -56,7 +56,7 @@ const Hero = () => {
 
           {/* Display headline — large, lowercase, teal accent on key phrase */}
           <motion.h1
-            className="text-[clamp(2.6rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-tight text-foreground lowercase"
+            className="text-[clamp(2.6rem,7vw,5.5rem)] font-medium sm:font-bold leading-[1.12] sm:leading-[1.05] tracking-tight text-foreground lowercase"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
@@ -70,7 +70,7 @@ const Hero = () => {
 
           {/* CTA row — pill button + open to work dot */}
           <motion.div
-            className="flex items-center gap-6 pt-8 flex-wrap"
+            className="flex items-center gap-6 pt-8 flex-nowrap"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55 }}
@@ -106,7 +106,7 @@ const Hero = () => {
           {/* Scroll cue */}
         </div>
         <motion.div
-          className="animate-bounce flex items-center mt-5 justify-center"
+          className="animate-bounce flex items-center mt-7 justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
