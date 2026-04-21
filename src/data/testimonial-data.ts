@@ -6,8 +6,8 @@ export interface Testimonial {
   linkedinUrl: string;
   thumbnailColor: string;
   image: string;
-  transcript: string[] | string;
-  video: string | null;
+  transcript: string[];
+  video: string;
   poster: string;
 }
 
@@ -42,9 +42,12 @@ export const testimonials: Testimonial[] = [
     linkedinUrl: "https://www.linkedin.com/in/favour-aghandu/",
     image: "bg-[url('/favour2.jfif')] bg-cover bg-top",
     thumbnailColor: "from-orange-500 to-red-600",
-    video: "/favour.mp4",
-    transcript:
-      "As a designer, I appreciate developers who care about the details. David implemented our designs pixel-perfectly and even suggested animation improvements that enhanced the overall feel. His communication throughout the project was exceptional.",
+    video: "/favour_testimonial.mp4",
+    transcript: [
+      "Hello. My name is Favour Aghandu. I am a project and Products Manager. I work with Dave at Spot'D as the project manager, and during the period of working together, Dave showed exceptional abilities.",
+      "Dave is someone that works with time to a large extent, if he won't be able to deliver it at the agreed time, he lets you know, so you know how to adjust it and make proper plans. And as a project manager, that is a good one for me, because it helps with my planning and project schedule.",
+      "Then, David is also someone that is open to learning. Yes, when it comes to things he's master of, he doesn't hold back to show his mastery and expertise in such things, but when it comes to things he needs to learn or upgrade. Yeah, he's open to learning. He accepts feedback and tries to implement those feedback as well.",
+    ],
   },
   {
     id: 3,
