@@ -13,7 +13,6 @@ const geist = Geist({
   display: "swap",
 });
 
-// ── Root metadata — inherited by all pages unless overridden ─────────────────
 export const metadata: Metadata = {
   title: {
     default: siteConfig.title,
@@ -49,7 +48,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // Structured data hint for Google — identifies this as a personal portfolio
   other: {
     "application-name": siteConfig.name,
   },

@@ -10,14 +10,14 @@ import AboutSection from "@/components/sections/AboutSection";
 import ContactSection from "@/components/sections/ContactSection";
 import { metaObject } from "@/config/site.config";
 
-// ── Page-level SEO ────────────────────────────────────────────────────────────
-// Inherits root layout metadata, adds home-specific OG description
 export const metadata = metaObject(
-  undefined, // no custom title — use root default
-  undefined, // no custom OG — use root default
+  undefined, 
+  undefined, 
 );
 
-export default function HomePage() {
+export default async function HomePage() {
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Header />

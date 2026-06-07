@@ -49,7 +49,7 @@ const AboutSection = () => {
                   />
                   <img
                     loading="eager"
-                    src="/david.jpg"
+                    src="/dee.png"
                     alt="David Kalu"
                     className="w-full aspect-square object-cover rounded-2xl relative z-10 shadow-xl"
                   />

@@ -95,24 +95,20 @@ const workExperience: WorkExperience[] = [
 
 const education = [
   {
-    title: "IBM iOS and Android Mobile App Developer Professional Certificate",
-    institution: "DevCareer X Coursera Scholarship, Online",
-    period: "2025 - Present",
-  },
-  {
     title: "B.A. Linguistics and Communication Studies",
     institution: "University of Calabar, Nigeria",
     period: "2022 - Present",
   },
   {
+    title: "IBM iOS and Android Mobile App Developer Professional Certificate",
+    institution: "IBM",
+    period: "Dec, 2025 - Present",
+  },
+  
+  {
     title: "Designing User Interfaces and Experiences (UI/UX)",
     institution: "IBM",
     period: "Jan, 2026",
-  },
-  {
-    title: "Responsive Web Design",
-    institution: "MindLuster",
-    period: "Aug 2023",
   },
   {
     title: "Frontend Web Development",
