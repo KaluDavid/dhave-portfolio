@@ -1,4 +1,4 @@
-"use client";   
+"use client";
 import { useEffect, useState } from "react";
 
 const GLOBAL_STYLES = `
@@ -128,7 +128,14 @@ type BoneProps = {
   delay?: string;
 };
 
-function Bone({ w = "100%", h = 12, r = 6, dark = false, style = {}, delay = "0s" }: BoneProps) {
+function Bone({
+  w = "100%",
+  h = 12,
+  r = 6,
+  dark = false,
+  style = {},
+  delay = "0s",
+}: BoneProps) {
   const base = dark ? "#d8dbe2" : "#e6e8ed";
   const shine = dark ? "#eaecf2" : "#f2f4f7";
   return (
@@ -157,7 +164,8 @@ function Avatar({ size = 68 }: { size?: number }) {
         width: size,
         height: size,
         borderRadius: "50%",
-        background: "linear-gradient(90deg, #e6e8ed 0px, #f2f4f7 200px, #e6e8ed 400px)",
+        background:
+          "linear-gradient(90deg, #e6e8ed 0px, #f2f4f7 200px, #e6e8ed 400px)",
         backgroundSize: "900px 100%",
         animation: "shimmer 1.7s infinite linear",
         flexShrink: 0,
@@ -166,7 +174,15 @@ function Avatar({ size = 68 }: { size?: number }) {
   );
 }
 
-function Dot({ size = 7, hollow = false }: { size?: number; hollow?: boolean }) {
+function Dot({
+  size = 7,
+  hollow = false,
+  style = {},
+}: {
+  size?: number;
+  hollow?: boolean;
+  style?: React.CSSProperties;
+}) {
   return (
     <div
       style={{
@@ -189,7 +205,8 @@ function Toggle({ w = 54, h = 30 }: { w?: number; h?: number }) {
         width: w,
         height: h,
         borderRadius: h / 2,
-        background: "linear-gradient(90deg, #e6e8ed 0px, #f2f4f7 200px, #e6e8ed 400px)",
+        background:
+          "linear-gradient(90deg, #e6e8ed 0px, #f2f4f7 200px, #e6e8ed 400px)",
         backgroundSize: "900px 100%",
         animation: "shimmer 1.7s infinite linear",
         position: "relative",
@@ -219,7 +236,12 @@ type DiamondProps = {
   animKey?: "A" | "B";
   style?: React.CSSProperties;
 };
-function Diamond({ size = 22, hollow = false, animKey = "A", style = {} }: DiamondProps) {
+function Diamond({
+  size = 22,
+  hollow = false,
+  animKey = "A",
+  style = {},
+}: DiamondProps) {
   return (
     <div
       style={{
@@ -239,7 +261,13 @@ function Diamond({ size = 22, hollow = false, animKey = "A", style = {} }: Diamo
 function ChevronDown() {
   return (
     <svg width="16" height="9" viewBox="0 0 16 9" fill="none">
-      <path d="M1 1L8 8L15 1" stroke="#9a9ea8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M1 1L8 8L15 1"
+        stroke="#9a9ea8"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -286,15 +314,15 @@ function MainSection() {
         <Dot />
         <Bone w={140} h={10} r={5} />
         <Dot />
-        <Bone w={95}  h={10} r={5} />
+        <Bone w={95} h={10} r={5} />
       </div>
 
       {/* Text lines — varying widths matching mockup */}
       <div className="sk-lines">
-        <Bone w="62%"  h={13} r={5} dark delay="0s" />
-        <Bone w="72%"  h={13} r={5} dark delay="0.05s" />
-        <Bone w="64%"  h={13} r={5} dark delay="0.1s" />
-        <Bone w="55%"  h={13} r={5} dark delay="0.15s" />
+        <Bone w="62%" h={13} r={5} dark delay="0s" />
+        <Bone w="72%" h={13} r={5} dark delay="0.05s" />
+        <Bone w="64%" h={13} r={5} dark delay="0.1s" />
+        <Bone w="55%" h={13} r={5} dark delay="0.15s" />
       </div>
 
       {/* Controls: toggle + radio */}
@@ -310,11 +338,13 @@ function MainSection() {
       <Dot
         hollow
         size={14}
-        style={{
-          position: "absolute",
-          bottom: 110,
-          right: 60,
-        } as React.CSSProperties}
+        style={
+          {
+            position: "absolute",
+            bottom: 110,
+            right: 60,
+          } as React.CSSProperties
+        }
       />
 
       {/* Floating outline diamond lower-center */}
@@ -362,7 +392,9 @@ function BottomCards() {
 ───────────────────────────────────────── */
 export default function SkeletonLoader() {
   const [ready, setReady] = useState(false);
-  useEffect(() => { setReady(true); }, []);
+  useEffect(() => {
+    setReady(true);
+  }, []);
 
   return (
     <>
