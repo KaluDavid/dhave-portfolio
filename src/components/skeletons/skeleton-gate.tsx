@@ -12,7 +12,7 @@ interface SkeletonGateProps {
 export function SkeletonGate({
   skeleton,
   children,
-  minMs = 1000,
+  minMs = 3000,
 }: SkeletonGateProps) {
   const [ready, setReady] = useState(false);
 
