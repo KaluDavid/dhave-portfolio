@@ -66,7 +66,7 @@ export default async function CaseStudyPage({
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <Link
-              href="/#work"
+              href="/"
               className="flex items-center mb-8 cursor-pointer text-primary hover:underline "
             >
               <ArrowLeft className="mr-2 h-4 w-4" aria-hidden="true" />

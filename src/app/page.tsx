@@ -15,8 +15,7 @@ export const metadata = metaObject(
   undefined, 
 );
 
-export default async function HomePage() {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+export default  function HomePage() {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">

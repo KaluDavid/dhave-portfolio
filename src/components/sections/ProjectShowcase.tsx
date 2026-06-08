@@ -59,7 +59,7 @@ const ProjectShowcase = () => {
         {/* Scrollable gallery — scrollbar hidden via CSS */}
         <div
           ref={containerRef}
-          className="flex gap-6 px-4 pb-12 overflow-y-hidden overflow-x-auto"
+          className="flex gap-6 px-4 pb-12 pt-2 overflow-y-hidden overflow-x-auto"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           role="list"
         >

@@ -390,7 +390,7 @@ function BottomCards() {
 /* ─────────────────────────────────────────
    ROOT COMPONENT
 ───────────────────────────────────────── */
-export default function SkeletonLoader() {
+export default function HomeSkeleton() {
   const [ready, setReady] = useState(false);
   useEffect(() => {
     setReady(true);

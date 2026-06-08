@@ -28,9 +28,8 @@ const AboutContainer = () => {
             animate={{ opacity: 1, x: 0 }}
             className="mb-8"
           >
-            {/* Next.js Link — smooth client-side navigation back to home */}
             <Link
-              href="/#about"
+              href="/"
               className="inline-flex items-center gap-2  hover:underline text-foreground transition-all"
             >
               <ArrowLeft className="w-4 h-4" aria-hidden="true" />
