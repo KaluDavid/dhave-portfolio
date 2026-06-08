@@ -327,7 +327,7 @@ function MainSection() {
 
       {/* Controls: toggle + radio */}
       <div className="sk-controls">
-        <Toggle w={54} h={30} />
+        <Toggle w={90} h={30} />
         <div className="sk-radio-group">
           <Dot size={9} />
           <Bone w={110} h={9} r={4} />

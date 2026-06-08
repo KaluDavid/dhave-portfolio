@@ -330,6 +330,11 @@ function Body() {
           bulletWidths={["75%", "85%", "78%", "60%"]}
           tagWidths={[72, 76, 68, 84, 74, 78]}
         />
+        <TimelineEntry
+          delay={0.08}
+          bulletWidths={["75%", "85%", "78%", "60%"]}
+          tagWidths={[72, 76, 68, 84, 74, 78]}
+        />
       </div>
 
     </div>

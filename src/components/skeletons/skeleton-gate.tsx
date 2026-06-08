@@ -12,7 +12,7 @@ interface SkeletonGateProps {
 export function SkeletonGate({
   skeleton,
   children,
-  minMs = 3000,
+  minMs = 4000,
 }: SkeletonGateProps) {
   const [ready, setReady] = useState(false);
 
@@ -32,7 +32,7 @@ export function SkeletonGate({
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: ready ? 1 : 0 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
+        transition={{ duration: 0.3, ease: "easeOut", opacity: { delay: ready ? 0.3 : 0 } }}
       >
         {children}
       </motion.div>

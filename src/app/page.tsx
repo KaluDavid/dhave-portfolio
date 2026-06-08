@@ -9,6 +9,8 @@ import TestimonialSection from "@/components/sections/TestimonialSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ContactSection from "@/components/sections/ContactSection";
 import { metaObject } from "@/config/site.config";
+import HomeSkeleton from "@/components/skeletons/homer-skeleton";
+import AboutSkeleton from "@/components/skeletons/about-skeleton";
 
 export const metadata = metaObject(
   undefined, 
@@ -33,6 +35,8 @@ export default  function HomePage() {
         <ContactSection />
       </main>
       <Footer />
+      {/* <HomeSkeleton /> */}
+      {/* <AboutSkeleton /> */}
     </div>
   );
 }
