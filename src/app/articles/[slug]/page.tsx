@@ -139,10 +139,10 @@ export default async function ArticlePage({
 
               <div className="flex flex-wrap items-center gap-5 text-[13px] font-mono text-muted-foreground border-y border-border py-4">
 
-                <span className="flex items-center gap-1.5">
+                {/* <span className="flex items-center gap-1.5">
                   <Calendar className="h-3.5 w-3.5" />
                   {formatDate(article.publishedAt)}
-                </span>
+                </span> */}
 
                 <span className="flex items-center gap-1.5">
                   <Clock className="h-3.5 w-3.5" />
