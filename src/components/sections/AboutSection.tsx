@@ -166,7 +166,21 @@ const AboutSection = () => {
                       </motion.span>
                     </Link>
                     <Link
-                      href="https://docs.google.com/document/d/1hjaENYT9B8xNVJSjuMwVrgP-nmjZXSNbzksQsWWtWjE/"
+                      href="/articles"
+                      className="inline-flex items-center gap-2 text-primary hover:underline underline-offset-4 font-medium group"
+                    >
+                      <span>Read about my articles</span>
+                      <motion.span
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                        aria-hidden="true"
+                      >
+                        →
+                      </motion.span>
+                    </Link>
+                    <Link
+                      // href="https://docs.google.com/document/d/1hjaENYT9B8xNVJSjuMwVrgP-nmjZXSNbzksQsWWtWjE/"
+                      href="https://docs.google.com/document/d/19CtrAvjE5RgS5VKDCvl1jY2HmxjRcYIfeK4f3yEOMMk/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-primary hover:underline underline-offset-4 font-medium"
